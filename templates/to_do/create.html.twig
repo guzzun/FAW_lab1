@@ -1,0 +1,23 @@
+{# templates/to_to/create.html.twig #}
+{% extends '/base.html.twig' %}
+
+{% block body %}
+    <h1>Creare Sarcină</h1>
+    
+    {{ form_start(form) }}
+
+    {{ form_row(form.title) }}
+    {% if form_errors(form.title) %}
+        <div class="alert alert-danger">{{ form_errors(form.title) }}</div>
+    {% endif %}
+
+    {{ form_row(form.description) }}
+    
+
+    {{ form_row(form.dueDate) }}
+    
+    <button type="submit" class="btn btn-primary">Salvează</button>
+
+    {{ form_end(form) }}
+{% endblock %}
+

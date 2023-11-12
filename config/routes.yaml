@@ -1,0 +1,29 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+app_create_task:
+    path: '/create'
+    controller: App\Controller\ToDoController::create
+
+app_update_task:
+    path: '/update/{id}'
+    controller: App\Controller\ToDoController::update
+
+app_list_tasks:
+    path: '/list'
+    controller: App\Controller\ToDoController::list
+
+app_view_task:
+    path: '/view/{id}'
+    controller: App\Controller\ToDoController::view
+
+app_delete_task:
+    path: '/delete/{id}'
+    controller: App\Controller\ToDoController::delete
+
+app_edit:
+    path: '/edit/{id}'
+    controller: App\Controller\ToDoController::edit

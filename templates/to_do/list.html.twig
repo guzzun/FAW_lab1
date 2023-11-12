@@ -1,0 +1,33 @@
+{# list.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1> Sarcini </h1>
+    
+    <ul>
+        {% for task in tasks %}
+            <li>
+                {{ task.title }} - {{ task.dueDate|date('Y-m-d') }}
+                <a href="{{ path('app_view', {'id': task.id}) }}">View</a>
+                <a href="{{ path('app_edit', {'id': task.id}) }}">Edit</a>
+                <a href="{{ path('app_delete', {'id': task.id}) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {# Butoane #}
+    <div class="pagination">
+        {% if currentPage > 1 %}
+            <a href="{{ path('app_list', { 'page': currentPage - 1 }) }}"> Prev </a>
+        {% endif %}
+
+        {% for page in 1..totalPages %}
+            <a href="{{ path('app_list', { 'page': page }) }}">{{ page }}</a>
+        {% endfor %}
+
+        {% if currentPage < totalPages %}
+            <a href="{{ path('app_list', { 'page': currentPage + 1 }) }}"> Next </a>
+        {% endif %}
+    </div>
+{% endblock %}
